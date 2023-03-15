@@ -1,0 +1,107 @@
+﻿@model Kullanici
+@{
+    ViewData["Title"] = "Kullanici";
+}
+
+<h1>Kullanici</h1>
+
+
+@*Başlık tarafında model tanımlanırken, küçük harfle aşağıda büyük harfle başlanır. Tanımlamalar ve kullanım arasındaki farkı bu şekilde anlaşılır*@
+
+@*
+
+@Model.Ad
+
+Sayfada modeli bu şekilde kullandığımızda ;
+
+NullReferenceException : Object reference not set to an instance of an object. 
+
+Hatası alırsak modelimizin içi controller'da doldurulmamıştır.
+*@
+
+
+<table class="table">
+    <tr>
+        <td>Ad</td>
+        <td> : @Model.Ad</td>
+    </tr>
+    <tr>
+        <td>Soyad</td>
+        <td> : @Model.Soyad</td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td> : @Model.Email</td>
+    </tr>
+    <tr>
+        <td>Kullanıcı Adı</td>
+        <td> : @Model.KullaniciAdi</td>
+    </tr>
+    <tr>
+        <td>Şifre</td>
+        <td> : @Model.Sifre</td>
+    </tr>
+
+</table>
+
+<br />
+
+<h3>
+    Kullanıcı Bilgilerini Düzenleme
+</h3>
+
+<form asp-action="KullaniciDetay" method="post"> 
+
+    @*Formların varsayılan methodları posttur*@
+
+    
+<table class="table">
+    <tr>
+        <td>Ad</td>
+        <td> : @Html.TextBoxFor(model => model.Ad)</td>
+    </tr>
+    <tr>
+        <td>Soyad</td>
+            <td> : @Html.TextBoxFor(model => model.Soyad)</td>
+    </tr>
+    <tr>
+        <td>Email</td>
+            <td> : @Html.TextBoxFor(model => model.Email)</td>
+    </tr>
+    <tr>
+        <td>Kullanıcı Adı</td>
+            <td> : @Html.TextBoxFor(model => model.KullaniciAdi)</td>
+    </tr>
+    <tr>
+        <td>Şifre</td>
+            <td> : @Html.TextBoxFor(model => model.Sifre)</td>
+    </tr>
+
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Gönder" />
+            </td>
+        </tr>
+
+</table>
+
+</form>
+
+<hr />
+
+<h3>asp-for kullanarak model binding</h3>
+
+<form asp-action="KullaniciDetay">
+
+    <input asp-for="Ad" /><br />
+    <input asp-for="Soyad" /><br />
+    <input asp-for="Email" /><br />
+    <input asp-for="KullaniciAdi" /><br />
+    <input asp-for="Sifre"/>
+
+    <br />
+
+    <input type="submit" value="Gönder" />
+
+</form>
