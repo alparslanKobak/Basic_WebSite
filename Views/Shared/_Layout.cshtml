@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/WebApplication1.styles.css" asp-append-version="true" />
+    @await RenderSectionAsync("OzelCss", required: false)
 </head>
 <body>
     <header>
@@ -24,16 +25,49 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="MVC01RazorSyntax" asp-action="Index">Razor Syntax</a>
-                        </li><li class="nav-item">
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Gizlilik</a>
                         </li>
-                        
+
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="MVC03DataTransfer" asp-action="Index">Data Transfer</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="MVC04ModelBinding" asp-action="Index">ModelBinding</a>
                         </li>
+                        
+
+                        <li class="dropdown">
+                            <a class="btn  dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Model Validation
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" asp-controller="MVC05ModelValidation" asp-action="Index">Model Validation</a></li>
+                                <li><a class="dropdown-item" asp-controller="MVC05ModelValidation" asp-action="UyeListesi">Üye Listesi</a></li>
+                                <li><a class="dropdown-item" asp-controller="MVC05ModelValidation" asp-action="YeniUye">Yeni Üye Ekle</a></li>
+                            </ul>
+                        </li>
+
+
+                        <li class="dropdown">
+                            <a class="btn  dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Diğer Konular
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" asp-controller="MVC06Section" asp-action="Index">Section</a></li>
+                                
+                                <li><a class="dropdown-item" asp-controller="MVC07Partial" asp-action="Index">Partial</a></li>
+
+                                <li><a class="dropdown-item" asp-controller="MVC08ViewResults" asp-action="Index">View Results</a></li>
+
+                            </ul>
+                        </li>
+
+
+
 
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="ContactUs">İletişim</a>
@@ -46,15 +80,17 @@
     <div class="container">
         <main role="main" class="pb-3">
             @*Bir sayfada bir render body yeterlidir, ancak sayfa tasarımı değiştirilirse, ihtiyaç duyulur farklılaştırılmaya...*@
-            @RenderBody() 
-           @* Gövde kısmını "RenderBody kısmı ile her seferinde yeniden render ederek ana dizine göre ayarlarız."*@
+            @RenderBody()
+            @* Gövde kısmını "RenderBody kısmı ile her seferinde yeniden render ederek ana dizine göre ayarlarız."*@
         </main>
     </div>
 
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2023 - WebApplication1 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            @await RenderSectionAsync("OzelIcerik", required: false)
         </div>
+        
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

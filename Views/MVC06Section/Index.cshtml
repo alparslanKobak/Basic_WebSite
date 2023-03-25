@@ -1,0 +1,53 @@
+﻿
+@{
+
+}
+
+<h1>
+    Section Kullanımı
+
+</h1>
+
+<p>
+    MVC de view sayfalarından Layout'a veri göndermek için kullanırız.
+</p>
+
+
+<section>
+    
+    @*standart html için olan section*@
+
+    Sayfa içinde bir bölüm 
+</section>
+
+@section Scripts{
+
+   @* <script>
+        alert("Section kullanımı")
+    </script>*@
+    
+    <script>
+        console.log("Section Kullanımı")
+    </script>
+
+    <script src="~/../../../p013 asp mvc eğİtİm/webapplication1/wwwroot/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+
+}
+
+@section OzelIcerik{
+    <section class="alert alert-info">
+
+        Özel İçerik de gönderebiliriz.
+
+    </section>
+}
+
+@section OzelCss{
+    <style>
+        body{
+            background-color:black;
+            color:white;
+        }
+    </style>
+}
+

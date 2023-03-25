@@ -1,7 +1,12 @@
+using WebApplication1.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<UyeContext>();
+// Bu satýrý sanal veritabaný kullanabilmek için ekledik.
 
 var app = builder.Build();
 
