@@ -25,7 +25,7 @@ namespace WebApplication1.Models
         [MaxLength(11, ErrorMessage = "{0} 11 karakter olmalıdır.")]
         public string? TcKimlikNo { get; set; }
 
-        [Display(Name ="Doğrum Tarihi")]
+        [Display(Name ="Doğum Tarihi")]
         public DateTime? DogumTarihi { get; set; }
         [Display(Name = "Kullanıcı Adı")]
         public string? KullaniciAdi { get; set; }

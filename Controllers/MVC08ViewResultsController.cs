@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
@@ -34,6 +35,49 @@ namespace WebApplication1.Controllers
         public PartialViewResult KategorileriGetirPartial() // IActionResult da yapsaydık olurdu.
         {
             return PartialView("_KategorilerPartial");
+        }
+
+        public IActionResult XmlContentResult()
+        {
+            var xml = @"
+              <kullanicilar>
+             <kullanici>
+                <adi>
+                    Alparslan
+                 </adi>
+                <Soyadi>
+                    Kobak
+                </Soyadi>
+              </kullanici>
+              <kullanici>
+                <adi>
+                    Kemal
+                 </adi>
+                <Soyadi>
+                    Çiçek
+                </Soyadi>
+              </kullanici>
+             </kullanicilar>
+                ";
+            return Content(xml, "application/xml" );
+            // xml dosyasının türünü döndürmek için "application/xml dedik.
+            
+            // geriye xml içeriğini döndürdük.
+        }
+
+        public IActionResult JsonDondur()
+        {
+            var kullanici = new Kullanici()
+            {
+
+                Ad = "Alp",
+                Soyad = "Çakmak",
+                KullaniciAdi = "Alpo"
+
+            };
+            
+
+            return Json(kullanici);
         }
     }
 }

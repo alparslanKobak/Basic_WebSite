@@ -20,5 +20,9 @@ namespace WebApplication1.Models
             base.OnConfiguring(optionsBuilder);
         }
 
+        
+
+        
+
     }
 }
