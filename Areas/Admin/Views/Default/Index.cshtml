@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewData["Title"] = "Admin Ana Sayfa";
+}
+
+<h1>Admin Paneli Anasayfa</h1>
+
+
+<h3>
+    Area - Admin
+</h3>
+
+<p>
+    Area'lar uygulama içinde çalışan uygulama mantığıyla hareket eder ve admin paneli, uygulama içinde bir blog projesi vb. yapmamıza yararlar.
+</p>
+
+<h3>
+    Area Oluşturma = Projeye Ekleme 
+</h3>
+
+<p>
+    Projeye sağ tıklayıp açılan menüden Add > Scaffolded item.. diyerek ekrana gelen pencereden MVC Area seçeneğini seçip ekle butonuna basıyoruz ve gelen açılan ekranda area'mıza isim (Admin, Blog vb.) verip tamam butonuna tıklayarak oluşmasını bekliyoruz.
+</p>
+
+<p>
+    Area oluştuktan sonra ekrana gelen uyarı metnindeki kodu kopyalayıp program.cs'ye area route u olarak eklememiz gerekli!
+</p>
+
+<p>
+    Area altında çalışan tüm controller'ların üstüne attribute olarak area admin kodunu eklememiz gerekiyor. Aksi durumda area altındaki sayfalar açılmaz 404 not fount hatası verir!
+</p>
+
+<p>
+    Bir Area oluşturduktan sonra bu area için shared klasörü, layout dosyası gibi şablon işlemlerini kendimiz eklememiz gerekiyor, böylece admin areasında ana uygulamadan farklı bir tema kullanabiliriz.
+</p>

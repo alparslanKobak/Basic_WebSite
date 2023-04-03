@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewData["Title"] = "Session Oku";
+}
+
+<h1>Session Oku</h1>
+
+
+
+@if (Context.Session.GetInt32("IsLoggedIn") == 1) // Eğer IsLoggedIn değeri 1 ise session ile oturum açılmıştır.
+{
+    <h3>Hoşgeldin : @Context.Session.GetString("Kullanici")</h3>
+
+    <h3>Hoşgeldin : @Context.Session.GetString("UserGuid")</h3>
+
+    <hr/>
+
+    <form asp-action="SessionSil">
+        <input type="submit" value="Çıkış" class="btn btn-danger" />
+    </form>
+}
+else{
+    <div class="alert alert-danger">
+        Lütfen Oturum Açınız !
+    </div>
+
+    <a role="button" class="btn btn-success" asp-action="Index">
+        Session Oluştur
+    </a>
+}

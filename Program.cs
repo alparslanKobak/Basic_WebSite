@@ -8,6 +8,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<UyeContext>();
 // Bu satýrý sanal veritabaný kullanabilmek için ekledik.
 
+builder.Services.AddSession(); // uygulamada session kullanabilmek için bu satýrý ekliyoruz.
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -24,9 +26,20 @@ app.UseStaticFiles(); // uygulama statik dosyalarý (wwwroot klasöründekiler) des
 
 app.UseRouting(); // uygulama routing ile yönlendirmeyi kullansýn.
 
+app.UseSession(); // Session kullanýmýný aktifleþtirmek için bu satýrý ekliyoruz.
+
 app.UseAuthentication(); // Uygulama kullanýcý giriþ sistemini aktifleþtirsin.
 
 app.UseAuthorization(); // uygulama kullanýcý yetkilendirme (admin, user vb.) sistemini aktif etsin.
+
+
+
+// Admin paneli için ayrý bir area açtýk ve route verdik.
+app.MapControllerRoute(
+            name: "admin",
+            pattern: "{area:exists}/{controller=Default}/{action=Index}/{id?}"
+          );
+
 
 app.MapControllerRoute( // uygulamanýn kullanacaðý routing yönlendirme ayarý
 
